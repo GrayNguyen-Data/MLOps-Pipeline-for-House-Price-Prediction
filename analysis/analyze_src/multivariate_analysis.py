@@ -27,8 +27,13 @@ class SimpleMultivariateAnalysis(MultivariateAnalysisTemplate):
     def visualization_matrix(self, df: pd.DataFrame):
         """Hiển thị ma trận biểu đồ phân tán"""
         sns.pairplot(df)
-        plt.suptitle("Pair Plot of Selected Features", y=1.02)
+        plt.suptitle("Pair Plot of Selected Features",)
         plt.show()
 
 if __name__ == "__main__":
+    # df = pd.read_csv("D:\\Project_Portfolio\\HOUSE-PRICE-MLOPS\\unzip_dataset\\AmesHousing.csv")
+
+    # vsl = SimpleMultivariateAnalysis()
+    # selected_features = df[['SalePrice', 'Gr Liv Area', 'Overall Qual', 'Total Bsmt SF', 'Year Built']]
+    # vsl.analyze(selected_features)
     pass

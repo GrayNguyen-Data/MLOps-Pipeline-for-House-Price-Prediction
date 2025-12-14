@@ -30,14 +30,14 @@ class CategoricalVsNumericalAnalysis(BivariateAnalysisStrategy):
         plt.xticks(rotation=45)
         plt.show()
 
-class BivariateAnalyer:
+class BivariateAnalyzer:
     def __init__(self, strategy: BivariateAnalysisStrategy):
-        self.__strategy = strategy
+        self._strategy = strategy
     
     def set_strategy(self, strategy: BivariateAnalysisStrategy):
-        self.__strategy = strategy
-    def excute_analysis(self, df: pd.DataFrame, feature1: str, feature2: str):
-        self.__strategy.analyze(df, feature1, feature2)
+        self._strategy = strategy
+    def execute_analysis(self, df: pd.DataFrame, feature1: str, feature2: str):
+        self._strategy.analyze(df, feature1, feature2)
 
 if __name__ == "__main__":
     pass

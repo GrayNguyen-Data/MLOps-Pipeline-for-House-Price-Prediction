@@ -43,12 +43,107 @@ Dataset AmesHousing là bộ dữu liệu về nhà ở tại thành phố Ames,
 
 **3. Mô tả biến và nhóm cột**
 
-***Nhóm Indentification***
-| Order                 | PID                     |
-|-----------------------|-------------------------|
-| Số thứ tự của bảng ghi| Mã thửa đất/bất động sản|
+***Nhóm 1: Tiện nghi/hệ thống kỹ thuật trong nhà***
 
+Các cột nói về tiện nghi, điều hòa
+|Name|Describle|
+|-|-|
+| **Central Air**| Có điều hòa giữa nhà hay không (Y/N)|
+| **Electrical** | Hệ thống điện chính(Ví du: SBrkr, FuseA)|
+| **Functional**|Tình trạng chức năng tổng thể của nhà|
+| **Paved Drive**| Lối xe vào (driveway) có được lát nhựa/bê tổng không|
 
+---
+***Nhóm 2: Diện tích và không gian sử dụng***
 
+Các cột diện tích mặt sàn và không gian sống
 
+|Name|Describle|
+|-|-|
+| **1st Flr SF**|Diện tích sàn tầng 1(square feet)|
+| **2nd Flr SF**|Diện tích sàn tầng 2|
+| **Low Qual Fin SF**|Diện tích sàn hoàn thiện chất lượng thấp|
+| **Gr Liv Area**|Diện tích sử dụng trên mặt đất không tính tầng hầm|
+| **Wood Deck SF**|Diện tích sàn gỗ(desk)|
+| **Open Porch SF** |Diện tích hiên mở|
+| **Enclosed Porch**|Diện tích hiên kín|
+| **3Ssn Porch**|Diện tích hiên 3 mùa|
+| **Screen Porch**|Diện tích hiên có lưới chắn|
+| **Pool Area**|Diện tích hồ bơi|
+| **Garage Area**|Diện tích gara|
 
+---
+
+***Nhóm 3: Phòng/Bố cục bên trong***
+
+Các cột về số lượng phòng
+
+|Name|Describle|
+|-|-|
+| **Bsmt Full Bath**|Số phòng tắm đầy đủ ở tầng hầm|
+| **Bsmt Half Bath**|Số phòng tắm nửa ở tầng hầm|
+| **Full Bath**|Số phòng tắm đầy đủ trên mặt đất|
+| **Half Bath**|Số phòng tắm nửa (toilet, không đủ tiện nghi tắm)|
+| **Bedroom AbvGr**|Số phòng ngủ trên mặt đất|
+| **Kitchen AbvGr** |Số bếp trên mặt đất|
+| **TotRms AbvGrd**|Tổng số phòng trên mặt đất (không tính phòng tắm)|
+| **Fireplaces**|Số lò sưởi|
+| **Garage Cars**|Sức chứa gara tính theo số xe|
+
+---
+
+***Nhóm 4: Chất lượng và tình trạng hoàn thiện***
+
+Các cột mang tính đánh giá chất lượng
+
+|Name|Describle|
+|-|-|
+| **Kitchen Qual**|Chất lượng bếp|
+| **Fireplace Qu**|Chất lượng lò sưởi|
+| **Garage Qual**| Chất lượng gara|
+| **Garage Cond**|Tình trạng gara (condition)|
+| **Pool QC**|Chất lượng hồ bơi|
+| **Fence** |Loại hàng rào|
+| **Misc Feature**|Đặc điểm phụ thêm (shed, elevator, …)|
+
+---
+
+***Nhóm 5: Thông tin gara***
+
+|Name|Describle|
+|-|-|
+| **Garage Type**|Loại gara|
+| **Garage Yr Blt**| Năm xây gara|
+| **Garage Finish**| Mức độ hoàn thiện nội thất gara|
+| **Garage Cars**|Sức chứa |
+| **Garage Area**|Diện tích|
+| **Garage Qual** |Chất lượng|
+| **Garage Cond**|Tình trạng|
+
+---
+
+***Nhóm 6: Tiện nghi bên ngoài/Ngoại thất***
+
+|Name|Describle|
+|-|-|
+| **Misc Feature**|Các tiện nghi khác |
+| **Misc Val**|Giá trị ước tính của tiện ích phụ|
+| **Các thuộc tính đã có**| Oử trên|
+
+---
+
+***Nhóm 7: Thông tin gara***
+
+Các cột về thời điểm bán và loại giao dịch:
+|Name|Describle|
+|-|-|
+| **Mo Sold**|Tháng bán|
+| **Yr Sold**|Năm bán|
+| **Sale Type**|Loại giao dịch|
+| **Sale Condition**|Tình trạng giao dịch|
+
+---
+
+***Nhóm 8: Target***
+
+`SalePrice:` Giá bán ngôi nhà (biến mục tiêu khi làm mô hình dự đoán).
