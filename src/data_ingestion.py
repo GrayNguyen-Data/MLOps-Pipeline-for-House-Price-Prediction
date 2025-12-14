@@ -37,13 +37,27 @@ class ZipDataIngestor(DataIngestor):
         return df
 
 class DataIngestorFactory:
+    @staticmethod
     def get_data_ingestor(file_extension: str) -> DataIngestor:
-        """Nếu là file zip thì trả về đối tượng Data Ingestor còn không thì báo lỗi -> đảm bảo tính đa hình"""
-        """File_extension được định nghĩa là chuỗi kí tự đứng sau dấu chấm cuối cùng trong file, dùng để chỉ cái định dạng của file là gì."""
+        """Nếu là file zip thì trả về đối tượng Data Ingestor còn không thì báo lỗi -> đảm bảo tính đa hình
+           File_extension được định nghĩa là chuỗi kí tự đứng sau dấu chấm cuối cùng trong file, dùng để chỉ cái định dạng của file là gì."""
         if file_extension == ".zip":
-            return ZipDataIngestor
+            return ZipDataIngestor()
         else:
             raise ValueError(f"Tệp {file_extension} không được sử dụng cho dự án này.")
+
+#Test
+if __name__ == "__main__":
+
+    # Đã test
+    file_path = "D:\\Project_Portfolio\\HOUSE-PRICE-MLOPS\\data\\storage.zip"
+    file_extension = os.path.splitext(file_path)[1]
+    data_ingestor = DataIngestorFactory.get_data_ingestor(file_extension)
+    df = data_ingestor.ingest(file_path)
+    # print(df.head())
+
+    # pass
+
 
 
 

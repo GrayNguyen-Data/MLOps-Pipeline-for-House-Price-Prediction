@@ -25,3 +25,30 @@ pip install -r requirements.txt
 ```
 pip freeze > requirements.txt
 ```
+
+#### **THÔNG TIN DỰ ÁN**
+
+Dự án sử dụng tập dữ liệu chuẩn về dự đoán giá nhà là : `AmesHousing`
+
+**1. Tổng quan Dataset**
+Dataset AmesHousing là bộ dữu liệu về nhà ở tại thành phố Ames, Lowa(Mỹ) là một dataset thay thế chất lượng cao cho Boston Housing trong các bài toán dự đoán giá nhà.
+
+***Mục tiêu***: Dự đoán giá nhà dựa trên các đặc trưng về cấu trúc nhà, tiện ích, chất lượng, vị trí,...
+
+**2. Thông tin dữ liệu của `AmesHousing.csv`**
+
+***Số lượng:***
+- Số dòng(bảng ghi): 2931 dòng
+- Số cột(biến): 82 cột (bao gồm cả biến target: salePrice)
+
+**3. Mô tả biến và nhóm cột**
+
+***Nhóm Indentification***
+| Order                 | PID                     |
+|-----------------------|-------------------------|
+| Số thứ tự của bảng ghi| Mã thửa đất/bất động sản|
+
+
+
+
+
