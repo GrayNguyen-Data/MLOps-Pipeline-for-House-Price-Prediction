@@ -147,5 +147,3 @@ Các cột về thời điểm bán và loại giao dịch:
 ***Nhóm 8: Target***
 
 `SalePrice:` Giá bán ngôi nhà (biến mục tiêu khi làm mô hình dự đoán).
-
-Download file.csv: [AmesHousing.csv](D:\Project_Portfolio\HOUSE-PRICE-MLOPS\unzip_dataset\AmesHousing.csv) 
