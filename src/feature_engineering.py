@@ -77,7 +77,7 @@ class FeatureEngineer:
     def set_stratery(self, stratery: FeatureEngineeringStrategy):
         self._stratery = stratery
     
-    def apply_onehotencoding(self, df: pd.DataFrame) -> pd.DataFrame:
+    def apply_Transform(self, df: pd.DataFrame) -> pd.DataFrame:
         logging.info("Hoàn thành việc sử dụng các kĩ thuật scale cho feature.")
         return self._stratery.transformation(df)
 
