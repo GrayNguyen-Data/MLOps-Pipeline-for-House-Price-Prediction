@@ -41,13 +41,5 @@ class UnivariateAnalyzer:
         self._strategy.analyze(df,feature)
 
 if __name__ =="__main__":
-    #Đã test
-    # df = pd.read_csv("D:\\Project_Portfolio\\HOUSE-PRICE-MLOPS\\unzip_dataset\\AmesHousing.csv")
-    # analysis_feature = UnivariateAnalyzer(NumericalUnivariateAnalysis())
-    # analysis_feature.execute_analysis(df, "SalePrice")
-
-    # analysis_feature.set_strategy(CategoricalUnivariateAnalysis())
-    # analysis_feature.execute_analysis(df, 'Neighborhood')
-
     pass
    

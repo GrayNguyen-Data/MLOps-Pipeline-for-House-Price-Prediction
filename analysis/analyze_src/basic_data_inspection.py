@@ -32,12 +32,4 @@ class DataInspector:
         self._strategy.inspect(df)
 
 if __name__ == "__main__":
-    #Đã test
-    # pd.set_option('display.max_columns', None)
-    # df = pd.read_csv("D:\\Project_Portfolio\\HOUSE-PRICE-MLOPS\\unzip_dataset\\AmesHousing.csv")
-    # inspector = DataInspector(DataTypeInspectionStrategy())
-    # inspector.execute_inspector(df)
-
-    # inspector.set_strategy(SummarryStatisticsInspectionStrategy())
-    # inspector.execute_inspector(df)
     pass

@@ -38,8 +38,4 @@ class SimpleMissingValuesAnalysis(MissingValuesAnalysisTemplate):
         plt.show()
     
 if __name__ == "__main__":
-    #đã test
-    # df = pd.read_csv("D:\\Project_Portfolio\\HOUSE-PRICE-MLOPS\\unzip_dataset\\AmesHousing.csv")
-    # missing_values = SimpleMissingValuesAnalysis()
-    # missing_values.analyze(df)
     pass

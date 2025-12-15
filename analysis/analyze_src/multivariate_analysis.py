@@ -32,9 +32,4 @@ class SimpleMultivariateAnalysis(MultivariateAnalysisTemplate):
         plt.show()
 
 if __name__ == "__main__":
-    # df = pd.read_csv("D:\\Project_Portfolio\\HOUSE-PRICE-MLOPS\\unzip_dataset\\AmesHousing.csv")
-
-    # vsl = SimpleMultivariateAnalysis()
-    # selected_features = df[['SalePrice', 'Gr Liv Area', 'Overall Qual', 'Total Bsmt SF', 'Year Built']]
-    # vsl.analyze(selected_features)
     pass

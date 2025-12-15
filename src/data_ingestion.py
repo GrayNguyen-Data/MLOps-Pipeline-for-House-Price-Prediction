@@ -48,17 +48,7 @@ class DataIngestorFactory:
 
 #Test
 if __name__ == "__main__":
-
-    # Đã test
-    file_path = "D:\\Project_Portfolio\\HOUSE-PRICE-MLOPS\\data\\storage.zip"
-    file_extension = os.path.splitext(file_path)[1]
-    data_ingestor = DataIngestorFactory.get_data_ingestor(file_extension)
-    df = data_ingestor.ingest(file_path)
-    # print(df.head())
-
-    # pass
-
-
+    pass
 
 
 
