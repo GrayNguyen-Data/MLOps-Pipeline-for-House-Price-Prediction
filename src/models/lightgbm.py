@@ -12,7 +12,7 @@ class _LGBNode:
 
 class LightGBMRegressor:
     def __init__(self, n_estimators=50, learning_rate=0.03, max_leaves=20, min_data_in_leaf=1, lam=1.0, gamma=0.0):
-        self.n_estimators = int(n_estimators)
+        self.n_estimators = int(n_estimators)     
         self.learning_rate = float(learning_rate)
         self.max_leaves = int(max_leaves)
         self.min_data_in_leaf = int(min_data_in_leaf)

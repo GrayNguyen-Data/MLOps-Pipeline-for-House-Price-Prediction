@@ -12,3 +12,15 @@
 2025-12-26 19:20:41,765 - INFO - XGBoost: đã vẽ Train vs Validation R2 cho từng fold
 2025-12-26 19:20:41,768 - INFO - XGBoost: 0/8 folds có dấu hiệu overfitting
 2025-12-26 19:20:41,774 - INFO - LightGBM: bắt đầu tuning (metric = R2)
+2025-12-27 01:03:38,481 - INFO - LightGBM: metrics lưu tại results\LightGBM_r2_metrics.csv
+2025-12-27 01:03:39,179 - INFO - LightGBM: đã vẽ Train vs Validation R2 cho từng fold
+2025-12-27 01:03:39,182 - INFO - LightGBM: 0/8 folds có dấu hiệu overfitting
+2025-12-27 01:03:39,183 - INFO - RandomForest: bắt đầu tuning (metric = R2)
+2025-12-27 01:09:01,585 - INFO - RandomForest: metrics lưu tại results\RandomForest_r2_metrics.csv
+2025-12-27 01:09:02,004 - INFO - RandomForest: đã vẽ Train vs Validation R2 cho từng fold
+2025-12-27 01:09:02,006 - INFO - RandomForest: 0/4 folds có dấu hiệu overfitting
+2025-12-27 01:09:02,007 - INFO - 
+Huấn luyện StackingRegressor...
+2025-12-27 01:09:02,008 - INFO - Fitting pipeline...
+2025-12-27 02:32:22,523 - INFO - Training hoàn tất.
+2025-12-27 02:32:22,524 - INFO - ================================================================================
