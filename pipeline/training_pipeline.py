@@ -44,7 +44,6 @@ def ml_pipeline() -> Tuple[Annotated[Pipeline, "trained_model_pipeline"], Annota
         df=raw_data, 
         strategy="mean"
     )
-    # Bước này không xử lý NaN trong cột object (string).
 
     # 3. Handling Missing Values - CATEGORICAL COLUMNS (BẮT BUỘC TRƯỚC OHE)
     # Điền giá trị thiếu bằng chuỗi "Missing" để OHE không gặp lỗi NaN.
@@ -59,7 +58,7 @@ def ml_pipeline() -> Tuple[Annotated[Pipeline, "trained_model_pipeline"], Annota
     encoded_data: Annotated[pd.DataFrame, ArtifactConfig("encoded_data")] = feature_engineering_step(
         df=filled_data_final, 
         strategy="onehot_encoding", 
-        features=None # ⬅️ Kích hoạt tự động chọn cột object
+        features=None 
     )
 
     # 5. Feature Engineering: LOG TRANSFORMATION (Áp dụng cho cột số)

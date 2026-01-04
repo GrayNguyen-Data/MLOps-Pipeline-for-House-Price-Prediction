@@ -68,7 +68,7 @@ python run_pipeline.py
 - Các metrics(MSE, R2) được dưới dưới dạng database trong ZenML Model Registry.
 - Mô hình được quản lý qua các lệnh CLI.
 ```
-zenml model version list
+zenml model list
 ```
 ---
 

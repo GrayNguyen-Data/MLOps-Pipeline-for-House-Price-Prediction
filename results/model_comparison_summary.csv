@@ -1,0 +1,5 @@
+model_name,mean_train_r2,mean_val_r2,mean_gap,max_gap,std_gap,high_overfit_folds,moderate_overfit_folds,good_folds,severity,conclusion
+Ridge,0.9501152353823695,0.9164752420027091,0.03363999337966039,0.043214076555358916,0.010260123095754714,0,0,3,LOW, TỐT - Overfitting ở mức chấp nhận được. Mô hình ổn định.
+XGBoost,0.9186118442075757,0.8726956103407675,0.045916233866808154,0.07039742850993003,0.017887797715143473,0,4,4,LOW, TỐT - Overfitting ở mức chấp nhận được. Mô hình ổn định.
+LightGBM,0.929481877144364,0.8805574131367868,0.04892446400757726,0.06498293913714848,0.009934350958079097,0,4,4,LOW, TỐT - Overfitting ở mức chấp nhận được. Mô hình ổn định.
+RandomForest,0.8101506750765872,0.7472276821809963,0.06292299289559089,0.09062282947973099,0.03120887117981072,0,2,2,MODERATE, VỪA PHẢI - Có dấu hiệu overfitting nhẹ. Nên xem xét regularization.
