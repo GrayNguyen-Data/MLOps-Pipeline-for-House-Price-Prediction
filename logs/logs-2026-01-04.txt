@@ -1,0 +1,531 @@
+[INFO] [2026-01-03T13:41:17.904047Z] Using user: `default`
+[INFO] [2026-01-03T13:41:17.905034Z] Using stack: `default`
+[INFO] [2026-01-03T13:41:17.910546Z]   deployer: `default`
+[INFO] [2026-01-03T13:41:17.911558Z]   artifact_store: `default`
+[INFO] [2026-01-03T13:41:17.911558Z]   orchestrator: `default`
+[INFO] [2026-01-03T13:41:20.696393Z] You can visualize your pipeline runs in the `ZenML Dashboard`. In order to try it locally, please run `zenml login --local`.
+[INFO] [2026-01-03T13:41:21.214768Z] Using cached version of step `data_ingestion_step`.
+[INFO] [2026-01-03T13:41:21.411649Z] Using cached version of step `handle_missing_values_step`.
+[INFO] [2026-01-03T13:41:21.583743Z] Using cached version of step `handle_missing_values_step_2`.
+[INFO] [2026-01-03T13:41:21.763859Z] Using cached version of step `feature_engineering_step`.
+[INFO] [2026-01-03T13:41:21.940133Z] Using cached version of step `feature_engineering_step_2`.
+[INFO] [2026-01-03T13:41:23.469890Z] Models can be viewed in the dashboard using ZenML Pro. Sign up for a free trial at https://www.zenml.io/pro/
+[INFO] [2026-01-03T13:41:23.616783Z] Step `outlier_detection_step` has started.
+[INFO] [2026-01-03T13:41:23.844641Z] Bắt đầu bước phát hiện outlier, kích thước DataFrame: (2930, 279)
+[INFO] [2026-01-03T13:41:23.898641Z] Đã tự động chọn 39 cột để phát hiện outlier.
+[INFO] [2026-01-03T13:41:23.899638Z] Thực thi phương pháp xử lý outlier đã chọn
+[INFO] [2026-01-03T13:41:23.900631Z] Phát hiện outlier bằng phương pháp Zscore
+[INFO] [2026-01-03T13:41:23.913639Z] Hoàn tất việc tìm kiếm outlier với threshold=3
+[INFO] [2026-01-03T13:41:23.919179Z] Đã loại bỏ outlier. Số dòng ban đầu: 2930, Số dòng còn lại: 2058
+[INFO] [2026-01-03T13:41:26.297306Z] Step `outlier_detection_step` has finished in `2.675s`.
+[INFO] [2026-01-03T13:41:29.061759Z] Step `data_splitter_step` has started.
+[INFO] [2026-01-03T13:41:29.205966Z] ================================================================================
+[INFO] [2026-01-03T13:41:29.207410Z] BẮT ĐẦU DATA SPLITTER STEP
+[INFO] [2026-01-03T13:41:29.207410Z] ================================================================================
+[INFO] [2026-01-03T13:41:29.207410Z] Chia dữ liệu theo method đã chọn
+[INFO] [2026-01-03T13:41:29.208457Z] Thực hiện chia dữ liệu train và test.
+[INFO] [2026-01-03T13:41:29.211510Z] X shape: (2058, 278), y shape: (2058,)
+[INFO] [2026-01-03T13:41:29.211510Z] X type: <class 'pandas.core.frame.DataFrame'>, y type: <class 'pandas.core.series.Series'>
+[INFO] [2026-01-03T13:41:29.217514Z] Train set - X: (1646, 278), y: (1646,)
+[INFO] [2026-01-03T13:41:29.219026Z] Test set - X: (412, 278), y: (412,)
+[INFO] [2026-01-03T13:41:29.219026Z] Đã chia xong tập train và test.
+[INFO] [2026-01-03T13:41:29.221395Z] Đổi y_train thành DataFrame
+[INFO] [2026-01-03T13:41:29.223092Z] Đổi y_test thành DataFrame
+[INFO] [2026-01-03T13:41:29.224632Z] -------------------------------------------------------------------
+[INFO] [2026-01-03T13:41:29.225631Z]   [0] X_train: (1646, 278) - ['Order', 'PID', 'MS SubClass']...
+[INFO] [2026-01-03T13:41:29.225631Z]   [1] y_train: (1646, 1) - ['SalePrice']
+[INFO] [2026-01-03T13:41:29.226632Z]   [2] X_test:  (412, 278) - ['Order', 'PID', 'MS SubClass']...
+[INFO] [2026-01-03T13:41:29.227627Z]   [3] y_test:  (412, 1) - ['SalePrice']
+[INFO] [2026-01-03T13:41:29.227627Z] Hoàn thành
+[INFO] [2026-01-03T13:41:29.229141Z] ================================================================================
+[INFO] [2026-01-03T13:41:36.970794Z] Step `data_splitter_step` has finished in `7.895s`.
+[INFO] [2026-01-03T13:41:39.858895Z] Models can be viewed in the dashboard using ZenML Pro. Sign up for a free trial at https://www.zenml.io/pro/
+[INFO] [2026-01-03T13:41:39.859898Z] Step `model_building_step` has started.
+[INFO] [2026-01-03T13:41:40.085360Z] ================================================================================
+[INFO] [2026-01-03T13:41:40.085882Z] BƯỚC HUẤN LUYỆN MÔ HÌNH - Tự động tuning với phân tích chi tiết
+[INFO] [2026-01-03T13:41:40.086735Z] ================================================================================
+[INFO] [2026-01-03T13:41:40.089897Z]  Bắt đầu Grid Search cho từng base model...
+[INFO] [2026-01-03T13:41:40.090898Z] 
+================================================================================
+[INFO] [2026-01-03T13:41:40.090898Z]  Ridge: Bắt đầu tuning (metric = R2)
+[INFO] [2026-01-03T13:41:40.091894Z] ================================================================================
+[INFO] [2026-01-03T13:41:40.096379Z] 
+GridSearch Ridge — 3 param sets
+[INFO] [2026-01-03T13:41:40.097042Z] 
+Ridge - set 1/3: {'alpha': 0.1}
+[INFO] [2026-01-03T13:41:40.113196Z] [Fold 1/5] Train MSE=0.0062 | Val MSE=0.0139 | Train R²=0.9547 | Val R²=0.9028
+[INFO] [2026-01-03T13:41:40.135175Z] [Fold 2/5] Train MSE=0.0065 | Val MSE=0.0114 | Train R²=0.9530 | Val R²=0.9152
+[INFO] [2026-01-03T13:41:40.157909Z] [Fold 3/5] Train MSE=0.0067 | Val MSE=0.0094 | Train R²=0.9516 | Val R²=0.9310
+[INFO] [2026-01-03T13:41:40.181094Z] [Fold 4/5] Train MSE=0.0060 | Val MSE=0.0160 | Train R²=0.9566 | Val R²=0.8797
+[INFO] [2026-01-03T13:41:40.201976Z] [Fold 5/5] Train MSE=0.0065 | Val MSE=0.0109 | Train R²=0.9524 | Val R²=0.9235
+[INFO] [2026-01-03T13:41:40.202975Z] → Mean CV: Train MSE=0.0064 | Val MSE=0.0123 | Train R²=0.9536 | Val R²=0.9104
+[INFO] [2026-01-03T13:41:40.202975Z] Elapsed: 0.11s
+[INFO] [2026-01-03T13:41:40.204491Z] 
+Ridge - set 2/3: {'alpha': 1.0}
+[INFO] [2026-01-03T13:41:40.225074Z] [Fold 1/5] Train MSE=0.0064 | Val MSE=0.0132 | Train R²=0.9533 | Val R²=0.9076
+[INFO] [2026-01-03T13:41:40.241675Z] [Fold 2/5] Train MSE=0.0067 | Val MSE=0.0114 | Train R²=0.9515 | Val R²=0.9158
+[INFO] [2026-01-03T13:41:40.260134Z] [Fold 3/5] Train MSE=0.0070 | Val MSE=0.0089 | Train R²=0.9497 | Val R²=0.9349
+[INFO] [2026-01-03T13:41:40.280260Z] [Fold 4/5] Train MSE=0.0063 | Val MSE=0.0140 | Train R²=0.9546 | Val R²=0.8943
+[INFO] [2026-01-03T13:41:40.295262Z] [Fold 5/5] Train MSE=0.0068 | Val MSE=0.0097 | Train R²=0.9500 | Val R²=0.9322
+[INFO] [2026-01-03T13:41:40.296597Z] → Mean CV: Train MSE=0.0067 | Val MSE=0.0114 | Train R²=0.9518 | Val R²=0.9169
+[INFO] [2026-01-03T13:41:40.297300Z] Elapsed: 0.09s
+[INFO] [2026-01-03T13:41:40.298298Z] 
+Ridge - set 3/3: {'alpha': 10.0}
+[INFO] [2026-01-03T13:41:40.317396Z] [Fold 1/5] Train MSE=0.0072 | Val MSE=0.0131 | Train R²=0.9475 | Val R²=0.9085
+[INFO] [2026-01-03T13:41:40.332833Z] [Fold 2/5] Train MSE=0.0077 | Val MSE=0.0101 | Train R²=0.9447 | Val R²=0.9252
+[INFO] [2026-01-03T13:41:40.353176Z] [Fold 3/5] Train MSE=0.0080 | Val MSE=0.0082 | Train R²=0.9420 | Val R²=0.9395
+[INFO] [2026-01-03T13:41:40.374248Z] [Fold 4/5] Train MSE=0.0073 | Val MSE=0.0128 | Train R²=0.9479 | Val R²=0.9032
+[INFO] [2026-01-03T13:41:40.392683Z] [Fold 5/5] Train MSE=0.0079 | Val MSE=0.0094 | Train R²=0.9423 | Val R²=0.9339
+[INFO] [2026-01-03T13:41:40.394294Z] → Mean CV: Train MSE=0.0076 | Val MSE=0.0107 | Train R²=0.9449 | Val R²=0.9221
+[INFO] [2026-01-03T13:41:40.396793Z] Elapsed: 0.10s
+[INFO] [2026-01-03T13:41:40.399450Z] Best Ridge params: {'alpha': 10.0} | CV Val MSE=0.0107
+[INFO] [2026-01-03T13:41:40.404413Z]  Đã lưu metrics: results\Ridge_r2_metrics.csv
+[INFO] [2026-01-03T13:41:41.841158Z]  Đã lưu biểu đồ phân tích tổng hợp cho Ridge
+[INFO] [2026-01-03T13:41:41.843156Z] 
+================================================================================
+[INFO] [2026-01-03T13:41:41.844158Z]  CHẨN ĐOÁN OVERFITTING - Ridge
+[INFO] [2026-01-03T13:41:41.845309Z] ================================================================================
+[INFO] [2026-01-03T13:41:41.846322Z]  R² Trung bình (Train):      0.9501
+[INFO] [2026-01-03T13:41:41.847336Z]  R² Trung bình (Validation): 0.9165
+[INFO] [2026-01-03T13:41:41.849349Z]  Gap Trung bình:             0.0336
+[INFO] [2026-01-03T13:41:41.850338Z]  Khoảng Gap:                 [0.0228, 0.0432]
+[INFO] [2026-01-03T13:41:41.852338Z]  Độ lệch chuẩn Gap:          0.0103
+[INFO] [2026-01-03T13:41:41.853337Z] 
+Phân tích theo Fold:
+[INFO] [2026-01-03T13:41:41.854362Z]   Fold tốt (gap ≤ 0.05):              3/3
+[INFO] [2026-01-03T13:41:41.857513Z]   Overfitting vừa phải (0.05-0.10):  0/3
+[INFO] [2026-01-03T13:41:41.859188Z]   Overfitting cao (gap > 0.10):       0/3
+[INFO] [2026-01-03T13:41:41.860178Z] 
+KẾT LUẬN:
+[INFO] [2026-01-03T13:41:41.861176Z]     TỐT - Overfitting ở mức chấp nhận được. Mô hình ổn định.
+[INFO] [2026-01-03T13:41:41.862194Z] ================================================================================
+[INFO] [2026-01-03T13:41:41.863188Z] 
+================================================================================
+[INFO] [2026-01-03T13:41:41.864183Z]  XGBoost: Bắt đầu tuning (metric = R2)
+[INFO] [2026-01-03T13:41:41.865660Z] ================================================================================
+[INFO] [2026-01-03T13:41:41.868014Z] 
+GridSearch XGBoost — 8 param sets
+[INFO] [2026-01-03T13:41:41.869012Z] 
+XGBoost - set 1/8: {'learning_rate': 0.03, 'max_depth': 3, 'n_estimators': 50}
+[INFO] [2026-01-03T13:42:29.930238Z] [Fold 1/5] Train MSE=0.0245 | Val MSE=0.0294 | Train R²=0.8208 | Val R²=0.7940
+[INFO] [2026-01-03T13:43:38.142803Z] [Fold 2/5] Train MSE=0.0250 | Val MSE=0.0266 | Train R²=0.8197 | Val R²=0.8032
+[INFO] [2026-01-03T13:45:01.070906Z] [Fold 3/5] Train MSE=0.0255 | Val MSE=0.0246 | Train R²=0.8160 | Val R²=0.8195
+[INFO] [2026-01-03T13:46:29.204265Z] [Fold 4/5] Train MSE=0.0244 | Val MSE=0.0296 | Train R²=0.8251 | Val R²=0.7767
+[INFO] [2026-01-03T13:47:40.725153Z] [Fold 5/5] Train MSE=0.0249 | Val MSE=0.0294 | Train R²=0.8184 | Val R²=0.7939
+[INFO] [2026-01-03T13:47:40.736335Z] → Mean CV: Train MSE=0.0249 | Val MSE=0.0279 | Train R²=0.8200 | Val R²=0.7974
+[INFO] [2026-01-03T13:47:40.737250Z] Elapsed: 358.87s
+[INFO] [2026-01-03T13:47:40.737250Z] 
+XGBoost - set 2/8: {'learning_rate': 0.03, 'max_depth': 3, 'n_estimators': 100}
+[INFO] [2026-01-03T13:50:35.093429Z] [Fold 1/5] Train MSE=0.0113 | Val MSE=0.0178 | Train R²=0.9176 | Val R²=0.8750
+[INFO] [2026-01-03T13:53:14.663135Z] [Fold 2/5] Train MSE=0.0117 | Val MSE=0.0150 | Train R²=0.9154 | Val R²=0.8890
+[INFO] [2026-01-03T13:55:48.027612Z] [Fold 3/5] Train MSE=0.0121 | Val MSE=0.0123 | Train R²=0.9126 | Val R²=0.9095
+[INFO] [2026-01-03T13:58:23.209920Z] [Fold 4/5] Train MSE=0.0112 | Val MSE=0.0180 | Train R²=0.9193 | Val R²=0.8642
+[INFO] [2026-01-03T14:00:37.992589Z] [Fold 5/5] Train MSE=0.0118 | Val MSE=0.0166 | Train R²=0.9140 | Val R²=0.8838
+[INFO] [2026-01-03T14:00:38.067207Z] → Mean CV: Train MSE=0.0116 | Val MSE=0.0159 | Train R²=0.9158 | Val R²=0.8843
+[INFO] [2026-01-03T14:00:38.068240Z] Elapsed: 777.33s
+[INFO] [2026-01-03T14:00:38.070237Z] 
+XGBoost - set 3/8: {'learning_rate': 0.03, 'max_depth': 5, 'n_estimators': 50}
+[INFO] [2026-01-03T14:02:56.774302Z] [Fold 1/5] Train MSE=0.0166 | Val MSE=0.0242 | Train R²=0.8787 | Val R²=0.8306
+[INFO] [2026-01-03T14:05:05.295218Z] [Fold 2/5] Train MSE=0.0167 | Val MSE=0.0235 | Train R²=0.8799 | Val R²=0.8261
+[INFO] [2026-01-03T14:06:30.789943Z] [Fold 3/5] Train MSE=0.0171 | Val MSE=0.0200 | Train R²=0.8768 | Val R²=0.8530
+[INFO] [2026-01-03T14:10:11.150328Z] [Fold 4/5] Train MSE=0.0164 | Val MSE=0.0253 | Train R²=0.8826 | Val R²=0.8094
+[INFO] [2026-01-03T14:15:18.095086Z] [Fold 5/5] Train MSE=0.0166 | Val MSE=0.0247 | Train R²=0.8786 | Val R²=0.8271
+[INFO] [2026-01-03T14:15:18.098080Z] → Mean CV: Train MSE=0.0167 | Val MSE=0.0235 | Train R²=0.8793 | Val R²=0.8292
+[INFO] [2026-01-03T14:15:18.099501Z] Elapsed: 880.03s
+[INFO] [2026-01-03T14:15:18.102107Z] 
+XGBoost - set 4/8: {'learning_rate': 0.03, 'max_depth': 5, 'n_estimators': 100}
+[INFO] [2026-01-03T14:25:29.716321Z] [Fold 1/5] Train MSE=0.0052 | Val MSE=0.0154 | Train R²=0.9617 | Val R²=0.8917
+[INFO] [2026-01-03T14:35:14.246845Z] [Fold 2/5] Train MSE=0.0053 | Val MSE=0.0135 | Train R²=0.9616 | Val R²=0.8997
+[INFO] [2026-01-03T14:45:16.818474Z] [Fold 3/5] Train MSE=0.0056 | Val MSE=0.0111 | Train R²=0.9597 | Val R²=0.9184
+[INFO] [2026-01-03T14:54:55.154688Z] [Fold 4/5] Train MSE=0.0051 | Val MSE=0.0161 | Train R²=0.9634 | Val R²=0.8784
+[INFO] [2026-01-03T15:05:15.323422Z] [Fold 5/5] Train MSE=0.0053 | Val MSE=0.0145 | Train R²=0.9614 | Val R²=0.8986
+[INFO] [2026-01-03T15:05:17.570171Z] → Mean CV: Train MSE=0.0053 | Val MSE=0.0141 | Train R²=0.9616 | Val R²=0.8974
+[INFO] [2026-01-03T15:05:17.572192Z] Elapsed: 2999.47s
+[INFO] [2026-01-03T15:05:17.572192Z] 
+XGBoost - set 5/8: {'learning_rate': 0.05, 'max_depth': 3, 'n_estimators': 50}
+[INFO] [2026-01-03T15:08:29.660369Z] [Fold 1/5] Train MSE=0.0134 | Val MSE=0.0193 | Train R²=0.9021 | Val R²=0.8644
+[INFO] [2026-01-03T15:11:35.228820Z] [Fold 2/5] Train MSE=0.0140 | Val MSE=0.0166 | Train R²=0.8995 | Val R²=0.8770
+[INFO] [2026-01-03T15:14:41.774093Z] [Fold 3/5] Train MSE=0.0144 | Val MSE=0.0142 | Train R²=0.8962 | Val R²=0.8955
+[INFO] [2026-01-03T15:17:52.121417Z] [Fold 4/5] Train MSE=0.0133 | Val MSE=0.0204 | Train R²=0.9043 | Val R²=0.8460
+[INFO] [2026-01-03T15:21:04.203412Z] [Fold 5/5] Train MSE=0.0141 | Val MSE=0.0189 | Train R²=0.8974 | Val R²=0.8678
+[INFO] [2026-01-03T15:21:04.205974Z] → Mean CV: Train MSE=0.0138 | Val MSE=0.0179 | Train R²=0.8999 | Val R²=0.8701
+[INFO] [2026-01-03T15:21:04.206950Z] Elapsed: 946.63s
+[INFO] [2026-01-03T15:21:04.207965Z] 
+XGBoost - set 6/8: {'learning_rate': 0.05, 'max_depth': 3, 'n_estimators': 100}
+[INFO] [2026-01-03T15:26:39.916879Z] [Fold 1/5] Train MSE=0.0074 | Val MSE=0.0150 | Train R²=0.9456 | Val R²=0.8947
+[INFO] [2026-01-03T15:31:55.264726Z] [Fold 2/5] Train MSE=0.0080 | Val MSE=0.0124 | Train R²=0.9426 | Val R²=0.9084
+[INFO] [2026-01-03T15:35:31.270498Z] [Fold 3/5] Train MSE=0.0082 | Val MSE=0.0101 | Train R²=0.9406 | Val R²=0.9261
+[INFO] [2026-01-03T15:40:44.746385Z] [Fold 4/5] Train MSE=0.0075 | Val MSE=0.0152 | Train R²=0.9459 | Val R²=0.8851
+[INFO] [2026-01-03T15:46:27.990136Z] [Fold 5/5] Train MSE=0.0081 | Val MSE=0.0128 | Train R²=0.9411 | Val R²=0.9100
+[INFO] [2026-01-03T15:46:28.047223Z] → Mean CV: Train MSE=0.0078 | Val MSE=0.0131 | Train R²=0.9432 | Val R²=0.9049
+[INFO] [2026-01-03T15:46:28.048224Z] Elapsed: 1523.84s
+[INFO] [2026-01-03T15:46:28.049446Z] 
+XGBoost - set 7/8: {'learning_rate': 0.05, 'max_depth': 5, 'n_estimators': 50}
+[INFO] [2026-01-03T15:51:37.046341Z] [Fold 1/5] Train MSE=0.0069 | Val MSE=0.0166 | Train R²=0.9497 | Val R²=0.8837
+[INFO] [2026-01-03T15:56:49.876455Z] [Fold 2/5] Train MSE=0.0070 | Val MSE=0.0148 | Train R²=0.9495 | Val R²=0.8900
+[INFO] [2026-01-03T16:02:04.674397Z] [Fold 3/5] Train MSE=0.0073 | Val MSE=0.0120 | Train R²=0.9470 | Val R²=0.9117
+[INFO] [2026-01-03T16:07:19.348982Z] [Fold 4/5] Train MSE=0.0067 | Val MSE=0.0173 | Train R²=0.9520 | Val R²=0.8697
+[INFO] [2026-01-03T16:09:50.019385Z] [Fold 5/5] Train MSE=0.0070 | Val MSE=0.0158 | Train R²=0.9490 | Val R²=0.8893
+[INFO] [2026-01-03T16:09:50.020452Z] → Mean CV: Train MSE=0.0070 | Val MSE=0.0153 | Train R²=0.9494 | Val R²=0.8889
+[INFO] [2026-01-03T16:09:50.020452Z] Elapsed: 1401.97s
+[INFO] [2026-01-03T16:09:50.021249Z] 
+XGBoost - set 8/8: {'learning_rate': 0.05, 'max_depth': 5, 'n_estimators': 100}
+[INFO] [2026-01-03T16:12:30.827010Z] [Fold 1/5] Train MSE=0.0027 | Val MSE=0.0140 | Train R²=0.9806 | Val R²=0.9019
+[INFO] [2026-01-03T16:15:10.659037Z] [Fold 2/5] Train MSE=0.0029 | Val MSE=0.0116 | Train R²=0.9791 | Val R²=0.9139
+[INFO] [2026-01-03T16:17:53.894095Z] [Fold 3/5] Train MSE=0.0030 | Val MSE=0.0098 | Train R²=0.9786 | Val R²=0.9278
+[INFO] [2026-01-03T16:20:34.835527Z] [Fold 4/5] Train MSE=0.0027 | Val MSE=0.0145 | Train R²=0.9807 | Val R²=0.8910
+[INFO] [2026-01-03T16:23:17.194241Z] [Fold 5/5] Train MSE=0.0028 | Val MSE=0.0126 | Train R²=0.9796 | Val R²=0.9120
+[INFO] [2026-01-03T16:23:17.286974Z] → Mean CV: Train MSE=0.0028 | Val MSE=0.0125 | Train R²=0.9797 | Val R²=0.9093
+[INFO] [2026-01-03T16:23:17.288517Z] Elapsed: 807.27s
+[INFO] [2026-01-03T16:23:17.300833Z] Best XGBoost params: {'learning_rate': 0.05, 'max_depth': 5, 'n_estimators': 100} | CV Val MSE=0.0125
+[INFO] [2026-01-03T16:23:17.311444Z]  Đã lưu metrics: results\XGBoost_r2_metrics.csv
+[INFO] [2026-01-03T16:23:19.848113Z]  Đã lưu biểu đồ phân tích tổng hợp cho XGBoost
+[INFO] [2026-01-03T16:23:19.849816Z] 
+================================================================================
+[INFO] [2026-01-03T16:23:19.850875Z]  CHẨN ĐOÁN OVERFITTING - XGBoost
+[INFO] [2026-01-03T16:23:19.851885Z] ================================================================================
+[INFO] [2026-01-03T16:23:19.851885Z]  R² Trung bình (Train):      0.9186
+[INFO] [2026-01-03T16:23:19.851885Z]  R² Trung bình (Validation): 0.8727
+[INFO] [2026-01-03T16:23:19.852919Z]  Gap Trung bình:             0.0459
+[INFO] [2026-01-03T16:23:19.853525Z]  Khoảng Gap:                 [0.0226, 0.0704]
+[INFO] [2026-01-03T16:23:19.853525Z]  Độ lệch chuẩn Gap:          0.0179
+[INFO] [2026-01-03T16:23:19.854070Z] 
+Phân tích theo Fold:
+[INFO] [2026-01-03T16:23:19.854070Z]   Fold tốt (gap ≤ 0.05):              4/8
+[INFO] [2026-01-03T16:23:19.854070Z]   Overfitting vừa phải (0.05-0.10):  4/8
+[INFO] [2026-01-03T16:23:19.854070Z]   Overfitting cao (gap > 0.10):       0/8
+[INFO] [2026-01-03T16:23:19.855172Z] 
+KẾT LUẬN:
+[INFO] [2026-01-03T16:23:19.855724Z]     TỐT - Overfitting ở mức chấp nhận được. Mô hình ổn định.
+[INFO] [2026-01-03T16:23:19.856771Z] ================================================================================
+[INFO] [2026-01-03T16:23:19.858833Z] 
+================================================================================
+[INFO] [2026-01-03T16:23:19.860189Z]  LightGBM: Bắt đầu tuning (metric = R2)
+[INFO] [2026-01-03T16:23:19.860863Z] ================================================================================
+[INFO] [2026-01-03T16:23:19.871142Z] 
+GridSearch LightGBM — 8 param sets
+[INFO] [2026-01-03T16:23:19.872299Z] 
+LightGBM - set 1/8: {'learning_rate': 0.03, 'max_leaves': 15, 'n_estimators': 50}
+[INFO] [2026-01-03T16:27:01.815874Z] [Fold 1/5] Train MSE=0.0197 | Val MSE=0.0252 | Train R²=0.8564 | Val R²=0.8232
+[INFO] [2026-01-03T16:32:25.312170Z] [Fold 2/5] Train MSE=0.0199 | Val MSE=0.0241 | Train R²=0.8564 | Val R²=0.8213
+[INFO] [2026-01-03T16:35:29.749358Z] [Fold 3/5] Train MSE=0.0203 | Val MSE=0.0214 | Train R²=0.8533 | Val R²=0.8431
+[INFO] [2026-01-03T16:38:28.598780Z] [Fold 4/5] Train MSE=0.0194 | Val MSE=0.0258 | Train R²=0.8606 | Val R²=0.8057
+[INFO] [2026-01-03T16:41:17.930734Z] [Fold 5/5] Train MSE=0.0199 | Val MSE=0.0254 | Train R²=0.8550 | Val R²=0.8216
+[INFO] [2026-01-03T16:41:17.964043Z] → Mean CV: Train MSE=0.0198 | Val MSE=0.0244 | Train R²=0.8563 | Val R²=0.8230
+[INFO] [2026-01-03T16:41:17.965080Z] Elapsed: 1078.09s
+[INFO] [2026-01-03T16:41:17.965080Z] 
+LightGBM - set 2/8: {'learning_rate': 0.03, 'max_leaves': 15, 'n_estimators': 100}
+[INFO] [2026-01-03T16:46:40.195879Z] [Fold 1/5] Train MSE=0.0076 | Val MSE=0.0152 | Train R²=0.9443 | Val R²=0.8933
+[INFO] [2026-01-03T17:02:22.531481Z] [Fold 2/5] Train MSE=0.0079 | Val MSE=0.0144 | Train R²=0.9429 | Val R²=0.8932
+[INFO] [2026-01-03T17:14:11.134435Z] [Fold 3/5] Train MSE=0.0082 | Val MSE=0.0110 | Train R²=0.9411 | Val R²=0.9191
+[INFO] [2026-01-03T17:30:33.380439Z] [Fold 4/5] Train MSE=0.0075 | Val MSE=0.0160 | Train R²=0.9464 | Val R²=0.8793
+[INFO] [2026-01-03T17:46:53.718530Z] [Fold 5/5] Train MSE=0.0079 | Val MSE=0.0145 | Train R²=0.9422 | Val R²=0.8982
+[INFO] [2026-01-03T17:46:53.879171Z] → Mean CV: Train MSE=0.0078 | Val MSE=0.0142 | Train R²=0.9434 | Val R²=0.8966
+[INFO] [2026-01-03T17:46:53.881456Z] Elapsed: 3935.92s
+[INFO] [2026-01-03T17:46:53.883454Z] 
+LightGBM - set 3/8: {'learning_rate': 0.03, 'max_leaves': 20, 'n_estimators': 50}
+[INFO] [2026-01-03T17:58:41.667312Z] [Fold 1/5] Train MSE=0.0179 | Val MSE=0.0245 | Train R²=0.8696 | Val R²=0.8283
+[INFO] [2026-01-03T18:07:02.727033Z] [Fold 2/5] Train MSE=0.0181 | Val MSE=0.0235 | Train R²=0.8696 | Val R²=0.8256
+[INFO] [2026-01-03T18:19:00.747792Z] [Fold 3/5] Train MSE=0.0185 | Val MSE=0.0206 | Train R²=0.8663 | Val R²=0.8486
+[INFO] [2026-01-03T18:30:38.329998Z] [Fold 4/5] Train MSE=0.0179 | Val MSE=0.0252 | Train R²=0.8715 | Val R²=0.8099
+[INFO] [2026-01-03T18:42:22.717101Z] [Fold 5/5] Train MSE=0.0180 | Val MSE=0.0247 | Train R²=0.8685 | Val R²=0.8269
+[INFO] [2026-01-03T18:42:22.718161Z] → Mean CV: Train MSE=0.0181 | Val MSE=0.0237 | Train R²=0.8691 | Val R²=0.8279
+[INFO] [2026-01-03T18:42:22.719162Z] Elapsed: 3328.84s
+[INFO] [2026-01-03T18:42:22.719162Z] 
+LightGBM - set 4/8: {'learning_rate': 0.03, 'max_leaves': 20, 'n_estimators': 100}
+[INFO] [2026-01-03T19:05:45.217185Z] [Fold 1/5] Train MSE=0.0063 | Val MSE=0.0152 | Train R²=0.9540 | Val R²=0.8936
+[INFO] [2026-01-03T19:27:13.306812Z] [Fold 2/5] Train MSE=0.0064 | Val MSE=0.0139 | Train R²=0.9536 | Val R²=0.8967
+[INFO] [2026-01-03T19:50:24.979371Z] [Fold 3/5] Train MSE=0.0067 | Val MSE=0.0108 | Train R²=0.9514 | Val R²=0.9209
+[INFO] [2026-01-03T20:13:34.883354Z] [Fold 4/5] Train MSE=0.0063 | Val MSE=0.0159 | Train R²=0.9550 | Val R²=0.8806
+[INFO] [2026-01-03T20:28:21.261375Z] [Fold 5/5] Train MSE=0.0064 | Val MSE=0.0141 | Train R²=0.9532 | Val R²=0.9011
+[INFO] [2026-01-03T20:28:21.334183Z] → Mean CV: Train MSE=0.0064 | Val MSE=0.0140 | Train R²=0.9534 | Val R²=0.8986
+[INFO] [2026-01-03T20:28:21.335092Z] Elapsed: 6358.62s
+[INFO] [2026-01-03T20:28:21.336100Z] 
+LightGBM - set 5/8: {'learning_rate': 0.05, 'max_leaves': 15, 'n_estimators': 50}
+[INFO] [2026-01-03T20:31:08.717255Z] [Fold 1/5] Train MSE=0.0096 | Val MSE=0.0166 | Train R²=0.9303 | Val R²=0.8838
+[INFO] [2026-01-03T20:35:40.155512Z] [Fold 2/5] Train MSE=0.0099 | Val MSE=0.0155 | Train R²=0.9288 | Val R²=0.8848
+[INFO] [2026-01-03T20:40:12.289208Z] [Fold 3/5] Train MSE=0.0102 | Val MSE=0.0125 | Train R²=0.9265 | Val R²=0.9084
+[INFO] [2026-01-03T20:43:45.417895Z] [Fold 4/5] Train MSE=0.0094 | Val MSE=0.0174 | Train R²=0.9327 | Val R²=0.8686
+[INFO] [2026-01-03T20:46:48.986750Z] [Fold 5/5] Train MSE=0.0097 | Val MSE=0.0160 | Train R²=0.9289 | Val R²=0.8880
+[INFO] [2026-01-03T20:46:48.986750Z] → Mean CV: Train MSE=0.0097 | Val MSE=0.0156 | Train R²=0.9294 | Val R²=0.8867
+[INFO] [2026-01-03T20:46:48.990619Z] Elapsed: 1107.66s
+[INFO] [2026-01-03T20:46:48.990619Z] 
+LightGBM - set 6/8: {'learning_rate': 0.05, 'max_leaves': 15, 'n_estimators': 100}
+[INFO] [2026-01-03T20:52:35.695750Z] [Fold 1/5] Train MSE=0.0044 | Val MSE=0.0131 | Train R²=0.9682 | Val R²=0.9081
+[INFO] [2026-01-03T20:58:24.634323Z] [Fold 2/5] Train MSE=0.0046 | Val MSE=0.0123 | Train R²=0.9671 | Val R²=0.9089
+[INFO] [2026-01-03T21:04:25.668205Z] [Fold 3/5] Train MSE=0.0046 | Val MSE=0.0096 | Train R²=0.9668 | Val R²=0.9298
+[INFO] [2026-01-03T21:10:18.436736Z] [Fold 4/5] Train MSE=0.0042 | Val MSE=0.0138 | Train R²=0.9696 | Val R²=0.8958
+[INFO] [2026-01-03T21:17:20.821290Z] [Fold 5/5] Train MSE=0.0045 | Val MSE=0.0116 | Train R²=0.9673 | Val R²=0.9189
+[INFO] [2026-01-03T21:17:20.982901Z] → Mean CV: Train MSE=0.0044 | Val MSE=0.0121 | Train R²=0.9678 | Val R²=0.9123
+[INFO] [2026-01-03T21:17:20.984028Z] Elapsed: 1831.99s
+[INFO] [2026-01-03T21:17:20.984905Z] 
+LightGBM - set 7/8: {'learning_rate': 0.05, 'max_leaves': 20, 'n_estimators': 50}
+[INFO] [2026-01-03T21:27:49.235891Z] [Fold 1/5] Train MSE=0.0081 | Val MSE=0.0167 | Train R²=0.9409 | Val R²=0.8828
+[INFO] [2026-01-03T21:39:42.326640Z] [Fold 2/5] Train MSE=0.0082 | Val MSE=0.0154 | Train R²=0.9406 | Val R²=0.8862
+[INFO] [2026-01-03T21:51:09.588440Z] [Fold 3/5] Train MSE=0.0086 | Val MSE=0.0119 | Train R²=0.9378 | Val R²=0.9125
+[INFO] [2026-01-03T22:01:39.946702Z] [Fold 4/5] Train MSE=0.0080 | Val MSE=0.0170 | Train R²=0.9429 | Val R²=0.8716
+[INFO] [2026-01-03T22:12:07.880263Z] [Fold 5/5] Train MSE=0.0082 | Val MSE=0.0158 | Train R²=0.9403 | Val R²=0.8892
+[INFO] [2026-01-03T22:12:07.880263Z] → Mean CV: Train MSE=0.0082 | Val MSE=0.0154 | Train R²=0.9405 | Val R²=0.8885
+[INFO] [2026-01-03T22:12:07.880263Z] Elapsed: 3286.90s
+[INFO] [2026-01-03T22:12:07.880263Z] 
+LightGBM - set 8/8: {'learning_rate': 0.05, 'max_leaves': 20, 'n_estimators': 100}
+[INFO] [2026-01-03T22:33:23.362483Z] [Fold 1/5] Train MSE=0.0033 | Val MSE=0.0136 | Train R²=0.9763 | Val R²=0.9047
+[INFO] [2026-01-03T22:54:30.137123Z] [Fold 2/5] Train MSE=0.0034 | Val MSE=0.0122 | Train R²=0.9756 | Val R²=0.9099
+[INFO] [2026-01-03T23:15:48.303615Z] [Fold 3/5] Train MSE=0.0035 | Val MSE=0.0095 | Train R²=0.9748 | Val R²=0.9300
+[INFO] [2026-01-03T23:37:05.065132Z] [Fold 4/5] Train MSE=0.0032 | Val MSE=0.0140 | Train R²=0.9770 | Val R²=0.8945
+[INFO] [2026-01-04T00:01:46.960031Z] [Fold 5/5] Train MSE=0.0033 | Val MSE=0.0121 | Train R²=0.9757 | Val R²=0.9152
+[INFO] [2026-01-04T00:01:46.962087Z] → Mean CV: Train MSE=0.0033 | Val MSE=0.0123 | Train R²=0.9759 | Val R²=0.9109
+[INFO] [2026-01-04T00:01:46.963372Z] Elapsed: 6579.08s
+[INFO] [2026-01-04T00:01:46.969448Z] Best LightGBM params: {'learning_rate': 0.05, 'max_leaves': 15, 'n_estimators': 100} | CV Val MSE=0.0121
+[INFO] [2026-01-04T00:01:46.989585Z]  Đã lưu metrics: results\LightGBM_r2_metrics.csv
+[INFO] [2026-01-04T00:01:51.223599Z]  Đã lưu biểu đồ phân tích tổng hợp cho LightGBM
+[INFO] [2026-01-04T00:01:51.227612Z] 
+================================================================================
+[INFO] [2026-01-04T00:01:51.229615Z]  CHẨN ĐOÁN OVERFITTING - LightGBM
+[INFO] [2026-01-04T00:01:51.229615Z] ================================================================================
+[INFO] [2026-01-04T00:01:51.231129Z]  R² Trung bình (Train):      0.9295
+[INFO] [2026-01-04T00:01:51.232655Z]  R² Trung bình (Validation): 0.8806
+[INFO] [2026-01-04T00:01:51.235668Z]  Gap Trung bình:             0.0489
+[INFO] [2026-01-04T00:01:51.237076Z]  Khoảng Gap:                 [0.0333, 0.0650]
+[INFO] [2026-01-04T00:01:51.238088Z]  Độ lệch chuẩn Gap:          0.0099
+[INFO] [2026-01-04T00:01:51.241606Z] 
+Phân tích theo Fold:
+[INFO] [2026-01-04T00:01:51.243133Z]   Fold tốt (gap ≤ 0.05):              4/8
+[INFO] [2026-01-04T00:01:51.245143Z]   Overfitting vừa phải (0.05-0.10):  4/8
+[INFO] [2026-01-04T00:01:51.246136Z]   Overfitting cao (gap > 0.10):       0/8
+[INFO] [2026-01-04T00:01:51.249137Z] 
+KẾT LUẬN:
+[INFO] [2026-01-04T00:01:51.251136Z]     TỐT - Overfitting ở mức chấp nhận được. Mô hình ổn định.
+[INFO] [2026-01-04T00:01:51.253310Z] ================================================================================
+[INFO] [2026-01-04T00:01:51.254683Z] 
+================================================================================
+[INFO] [2026-01-04T00:01:51.254683Z]  RandomForest: Bắt đầu tuning (metric = R2)
+[INFO] [2026-01-04T00:01:51.257689Z] ================================================================================
+[INFO] [2026-01-04T00:01:51.271163Z] 
+GridSearch RandomForest — 4 param sets
+[INFO] [2026-01-04T00:01:51.273341Z] 
+RandomForest - set 1/4: {'max_depth': 5, 'n_estimators': 50}
+[INFO] [2026-01-04T00:02:07.427332Z] [Fold 1/5] Train MSE=0.0301 | Val MSE=0.0366 | Train R²=0.7800 | Val R²=0.7436
+[INFO] [2026-01-04T00:02:23.593749Z] [Fold 2/5] Train MSE=0.0374 | Val MSE=0.0381 | Train R²=0.7304 | Val R²=0.7177
+[INFO] [2026-01-04T00:02:43.247458Z] [Fold 3/5] Train MSE=0.0343 | Val MSE=0.0363 | Train R²=0.7522 | Val R²=0.7333
+[INFO] [2026-01-04T00:03:02.352721Z] [Fold 4/5] Train MSE=0.0331 | Val MSE=0.0390 | Train R²=0.7622 | Val R²=0.7059
+[INFO] [2026-01-04T00:03:26.345574Z] [Fold 5/5] Train MSE=0.0292 | Val MSE=0.0379 | Train R²=0.7868 | Val R²=0.7347
+[INFO] [2026-01-04T00:03:26.442783Z] → Mean CV: Train MSE=0.0328 | Val MSE=0.0376 | Train R²=0.7623 | Val R²=0.7270
+[INFO] [2026-01-04T00:03:26.443328Z] Elapsed: 95.17s
+[INFO] [2026-01-04T00:03:26.444344Z] 
+RandomForest - set 2/4: {'max_depth': 5, 'n_estimators': 100}
+[INFO] [2026-01-04T00:03:58.894544Z] [Fold 1/5] Train MSE=0.0329 | Val MSE=0.0396 | Train R²=0.7596 | Val R²=0.7224
+[INFO] [2026-01-04T00:04:31.072940Z] [Fold 2/5] Train MSE=0.0352 | Val MSE=0.0371 | Train R²=0.7467 | Val R²=0.7250
+[INFO] [2026-01-04T00:05:07.818152Z] [Fold 3/5] Train MSE=0.0329 | Val MSE=0.0343 | Train R²=0.7621 | Val R²=0.7481
+[INFO] [2026-01-04T00:05:40.708436Z] [Fold 4/5] Train MSE=0.0278 | Val MSE=0.0336 | Train R²=0.8004 | Val R²=0.7467
+[INFO] [2026-01-04T00:05:52.668384Z] [Fold 5/5] Train MSE=0.0324 | Val MSE=0.0417 | Train R²=0.7638 | Val R²=0.7077
+[INFO] [2026-01-04T00:05:52.745464Z] → Mean CV: Train MSE=0.0322 | Val MSE=0.0373 | Train R²=0.7665 | Val R²=0.7300
+[INFO] [2026-01-04T00:05:52.745464Z] Elapsed: 146.30s
+[INFO] [2026-01-04T00:05:52.746459Z] 
+RandomForest - set 3/4: {'max_depth': 10, 'n_estimators': 50}
+[INFO] [2026-01-04T00:06:06.154908Z] [Fold 1/5] Train MSE=0.0156 | Val MSE=0.0316 | Train R²=0.8861 | Val R²=0.7787
+[INFO] [2026-01-04T00:06:37.317747Z] [Fold 2/5] Train MSE=0.0195 | Val MSE=0.0274 | Train R²=0.8595 | Val R²=0.7966
+[INFO] [2026-01-04T00:07:23.269727Z] [Fold 3/5] Train MSE=0.0178 | Val MSE=0.0279 | Train R²=0.8715 | Val R²=0.7949
+[INFO] [2026-01-04T00:08:03.487826Z] [Fold 4/5] Train MSE=0.0201 | Val MSE=0.0334 | Train R²=0.8554 | Val R²=0.7485
+[INFO] [2026-01-04T00:08:51.369714Z] [Fold 5/5] Train MSE=0.0206 | Val MSE=0.0357 | Train R²=0.8493 | Val R²=0.7500
+[INFO] [2026-01-04T00:08:52.125290Z] → Mean CV: Train MSE=0.0187 | Val MSE=0.0312 | Train R²=0.8643 | Val R²=0.7737
+[INFO] [2026-01-04T00:08:52.126392Z] Elapsed: 179.38s
+[INFO] [2026-01-04T00:08:52.126392Z] 
+RandomForest - set 4/4: {'max_depth': 10, 'n_estimators': 100}
+[INFO] [2026-01-04T00:10:10.470243Z] [Fold 1/5] Train MSE=0.0188 | Val MSE=0.0325 | Train R²=0.8629 | Val R²=0.7720
+[INFO] [2026-01-04T00:11:26.134805Z] [Fold 2/5] Train MSE=0.0234 | Val MSE=0.0330 | Train R²=0.8317 | Val R²=0.7556
+[INFO] [2026-01-04T00:12:56.202159Z] [Fold 3/5] Train MSE=0.0201 | Val MSE=0.0307 | Train R²=0.8550 | Val R²=0.7749
+[INFO] [2026-01-04T00:14:14.814979Z] [Fold 4/5] Train MSE=0.0222 | Val MSE=0.0348 | Train R²=0.8407 | Val R²=0.7377
+[INFO] [2026-01-04T00:15:32.703913Z] [Fold 5/5] Train MSE=0.0210 | Val MSE=0.0356 | Train R²=0.8468 | Val R²=0.7505
+[INFO] [2026-01-04T00:15:32.705028Z] → Mean CV: Train MSE=0.0211 | Val MSE=0.0333 | Train R²=0.8474 | Val R²=0.7581
+[INFO] [2026-01-04T00:15:32.706025Z] Elapsed: 400.58s
+[INFO] [2026-01-04T00:15:32.709032Z] Best RandomForest params: {'max_depth': 10, 'n_estimators': 50} | CV Val MSE=0.0312
+[INFO] [2026-01-04T00:15:32.731427Z]  Đã lưu metrics: results\RandomForest_r2_metrics.csv
+[INFO] [2026-01-04T00:15:34.771228Z]  Đã lưu biểu đồ phân tích tổng hợp cho RandomForest
+[INFO] [2026-01-04T00:15:34.777784Z] 
+================================================================================
+[INFO] [2026-01-04T00:15:34.778783Z]  CHẨN ĐOÁN OVERFITTING - RandomForest
+[INFO] [2026-01-04T00:15:34.779782Z] ================================================================================
+[INFO] [2026-01-04T00:15:34.779782Z]  R² Trung bình (Train):      0.8102
+[INFO] [2026-01-04T00:15:34.781846Z]  R² Trung bình (Validation): 0.7472
+[INFO] [2026-01-04T00:15:34.784329Z]  Gap Trung bình:             0.0629
+[INFO] [2026-01-04T00:15:34.785329Z]  Khoảng Gap:                 [0.0353, 0.0906]
+[INFO] [2026-01-04T00:15:34.787326Z]  Độ lệch chuẩn Gap:          0.0312
+[INFO] [2026-01-04T00:15:34.788874Z] 
+Phân tích theo Fold:
+[INFO] [2026-01-04T00:15:34.789862Z]   Fold tốt (gap ≤ 0.05):              2/4
+[INFO] [2026-01-04T00:15:34.791940Z]   Overfitting vừa phải (0.05-0.10):  2/4
+[INFO] [2026-01-04T00:15:34.792956Z]   Overfitting cao (gap > 0.10):       0/4
+[INFO] [2026-01-04T00:15:34.793972Z] 
+KẾT LUẬN:
+[INFO] [2026-01-04T00:15:34.794970Z]     VỪA PHẢI - Có dấu hiệu overfitting nhẹ. Nên xem xét regularization.
+[INFO] [2026-01-04T00:15:34.796969Z] ================================================================================
+[INFO] [2026-01-04T00:15:34.797969Z] 
+================================================================================
+[INFO] [2026-01-04T00:15:34.799071Z]  Đang tạo bảng so sánh tổng hợp các models...
+[INFO] [2026-01-04T00:15:34.801576Z] ================================================================================
+[INFO] [2026-01-04T00:15:35.672945Z]  Đã lưu bảng so sánh tổng hợp các models
+[INFO] [2026-01-04T00:15:35.675960Z] 
+================================================================================
+[INFO] [2026-01-04T00:15:35.676960Z]  Đang huấn luyện StackingRegressor (Meta Model)...
+[INFO] [2026-01-04T00:15:35.678961Z] ================================================================================
+[INFO] [2026-01-04T00:15:35.679960Z] ================================================================================
+[INFO] [2026-01-04T00:15:35.681484Z]    Khởi tạo StackingRegressor
+[INFO] [2026-01-04T00:15:35.682029Z]    Số base models: 4
+[INFO] [2026-01-04T00:15:35.683065Z]    Số folds CV:    5
+[INFO] [2026-01-04T00:15:35.688433Z] ================================================================================
+[INFO] [2026-01-04T00:15:35.689463Z]  Đang fit pipeline...
+[INFO] [2026-01-04T00:15:35.727155Z] 
+================================================================================
+[INFO] [2026-01-04T00:15:35.727155Z] BƯỚC 1: HUẤN LUYỆN BASE MODELS VỚI K-FOLD CV
+[INFO] [2026-01-04T00:15:35.728156Z] ================================================================================
+[INFO] [2026-01-04T00:15:35.729153Z] 
+ Đang train base model 1/4: RidgeRegressor
+[INFO] [2026-01-04T00:15:35.729153Z] --------------------------------------------------------------------------------
+[INFO] [2026-01-04T00:15:35.755843Z]    [Fold 1/5] Train MSE: 0.0060 | Val MSE: 0.0143 | Train R²: 0.9561 | Val R²: 0.9012
+[INFO] [2026-01-04T00:15:35.773651Z]    [Fold 2/5] Train MSE: 0.0066 | Val MSE: 0.0110 | Train R²: 0.9523 | Val R²: 0.9217
+[INFO] [2026-01-04T00:15:35.792821Z]    [Fold 3/5] Train MSE: 0.0066 | Val MSE: 0.0101 | Train R²: 0.9527 | Val R²: 0.9256
+[INFO] [2026-01-04T00:15:35.809576Z]    [Fold 4/5] Train MSE: 0.0067 | Val MSE: 0.0096 | Train R²: 0.9510 | Val R²: 0.9326
+[INFO] [2026-01-04T00:15:35.831454Z]    [Fold 5/5] Train MSE: 0.0066 | Val MSE: 0.0119 | Train R²: 0.9533 | Val R²: 0.9075
+[INFO] [2026-01-04T00:15:35.831984Z] --------------------------------------------------------------------------------
+[INFO] [2026-01-04T00:15:35.833015Z]   RidgeRegressor - Kết quả trung bình qua 5 folds:
+[INFO] [2026-01-04T00:15:35.835015Z]    Train MSE: 0.0065 | Val MSE: 0.0113
+[INFO] [2026-01-04T00:15:35.836014Z]    Train R²:  0.9531 | Val R²:  0.9177
+[INFO] [2026-01-04T00:15:35.839013Z]    Gap R² = 0.0354 (tốt)
+[INFO] [2026-01-04T00:15:35.839013Z] 
+ Đang train base model 2/4: XGBoostRegressor
+[INFO] [2026-01-04T00:15:35.840013Z] --------------------------------------------------------------------------------
+[INFO] [2026-01-04T00:25:13.950045Z]    [Fold 1/5] Train MSE: 0.0028 | Val MSE: 0.0135 | Train R²: 0.9793 | Val R²: 0.9112
+[INFO] [2026-01-04T00:34:35.633420Z]    [Fold 2/5] Train MSE: 0.0029 | Val MSE: 0.0121 | Train R²: 0.9792 | Val R²: 0.9106
+[INFO] [2026-01-04T00:44:15.012454Z]    [Fold 3/5] Train MSE: 0.0029 | Val MSE: 0.0124 | Train R²: 0.9786 | Val R²: 0.9163
+[INFO] [2026-01-04T00:53:22.125147Z]    [Fold 4/5] Train MSE: 0.0027 | Val MSE: 0.0133 | Train R²: 0.9805 | Val R²: 0.8996
+[INFO] [2026-01-04T01:02:36.898480Z]    [Fold 5/5] Train MSE: 0.0027 | Val MSE: 0.0102 | Train R²: 0.9808 | Val R²: 0.9161
+[INFO] [2026-01-04T01:02:36.900113Z] --------------------------------------------------------------------------------
+[INFO] [2026-01-04T01:02:36.901110Z]   XGBoostRegressor - Kết quả trung bình qua 5 folds:
+[INFO] [2026-01-04T01:02:36.903117Z]    Train MSE: 0.0028 | Val MSE: 0.0123
+[INFO] [2026-01-04T01:02:36.905025Z]    Train R²:  0.9797 | Val R²:  0.9108
+[INFO] [2026-01-04T01:02:36.906026Z]    Gap R² = 0.0689 (overfitting nhẹ)
+[INFO] [2026-01-04T01:02:36.907624Z] 
+ Đang train base model 3/4: LightGBMRegressor
+[INFO] [2026-01-04T01:02:36.909654Z] --------------------------------------------------------------------------------
+[INFO] [2026-01-04T01:20:33.302953Z]    [Fold 1/5] Train MSE: 0.0046 | Val MSE: 0.0104 | Train R²: 0.9674 | Val R²: 0.9190
+[INFO] [2026-01-04T01:38:36.599325Z]    [Fold 2/5] Train MSE: 0.0042 | Val MSE: 0.0133 | Train R²: 0.9693 | Val R²: 0.9044
+[INFO] [2026-01-04T01:47:41.775114Z]    [Fold 3/5] Train MSE: 0.0045 | Val MSE: 0.0122 | Train R²: 0.9675 | Val R²: 0.9098
+[INFO] [2026-01-04T02:02:25.917593Z]    [Fold 4/5] Train MSE: 0.0045 | Val MSE: 0.0103 | Train R²: 0.9670 | Val R²: 0.9288
+[INFO] [2026-01-04T02:19:22.786843Z]    [Fold 5/5] Train MSE: 0.0043 | Val MSE: 0.0139 | Train R²: 0.9684 | Val R²: 0.9046
+[INFO] [2026-01-04T02:19:22.787853Z] --------------------------------------------------------------------------------
+[INFO] [2026-01-04T02:19:22.788848Z]   LightGBMRegressor - Kết quả trung bình qua 5 folds:
+[INFO] [2026-01-04T02:19:22.788848Z]    Train MSE: 0.0044 | Val MSE: 0.0120
+[INFO] [2026-01-04T02:19:22.789844Z]    Train R²:  0.9679 | Val R²:  0.9133
+[INFO] [2026-01-04T02:19:22.789844Z]    Gap R² = 0.0546 (overfitting nhẹ)
+[INFO] [2026-01-04T02:19:22.791335Z] 
+ Đang train base model 4/4: RandomForestRegressor
+[INFO] [2026-01-04T02:19:22.793186Z] --------------------------------------------------------------------------------
+[INFO] [2026-01-04T02:20:00.268779Z]    [Fold 1/5] Train MSE: 0.0229 | Val MSE: 0.0334 | Train R²: 0.8364 | Val R²: 0.7420
+[INFO] [2026-01-04T02:20:50.600427Z]    [Fold 2/5] Train MSE: 0.0171 | Val MSE: 0.0250 | Train R²: 0.8803 | Val R²: 0.7916
+[INFO] [2026-01-04T02:21:33.852250Z]    [Fold 3/5] Train MSE: 0.0199 | Val MSE: 0.0346 | Train R²: 0.8524 | Val R²: 0.7728
+[INFO] [2026-01-04T02:22:10.886390Z]    [Fold 4/5] Train MSE: 0.0219 | Val MSE: 0.0340 | Train R²: 0.8409 | Val R²: 0.7583
+[INFO] [2026-01-04T02:22:54.103218Z]    [Fold 5/5] Train MSE: 0.0193 | Val MSE: 0.0356 | Train R²: 0.8574 | Val R²: 0.7602
+[INFO] [2026-01-04T02:22:54.103835Z] --------------------------------------------------------------------------------
+[INFO] [2026-01-04T02:22:54.105292Z]   RandomForestRegressor - Kết quả trung bình qua 5 folds:
+[INFO] [2026-01-04T02:22:54.106407Z]    Train MSE: 0.0202 | Val MSE: 0.0325
+[INFO] [2026-01-04T02:22:54.107395Z]    Train R²:  0.8535 | Val R²:  0.7650
+[INFO] [2026-01-04T02:22:54.108399Z]    Gap R² = 0.0885 (overfitting nhẹ)
+[INFO] [2026-01-04T02:22:54.109395Z] 
+================================================================================
+[INFO] [2026-01-04T02:22:54.111298Z] BƯỚC 2: HUẤN LUYỆN META MODEL
+[INFO] [2026-01-04T02:22:54.112300Z] ================================================================================
+[INFO] [2026-01-04T02:22:54.113880Z]  OOF predictions đã được tạo cho tất cả base models
+[INFO] [2026-01-04T02:22:54.115444Z]    Shape của meta features: (1646, 4)
+[INFO] [2026-01-04T02:22:54.116557Z]  Đang fit meta model trên OOF predictions...
+[INFO] [2026-01-04T02:22:54.117566Z]    Meta model: LinearRegressor
+[INFO] [2026-01-04T02:22:54.140705Z] 
+  Meta model đã được train
+[INFO] [2026-01-04T02:22:54.141708Z]    Meta Train MSE: 0.0100
+[INFO] [2026-01-04T02:22:54.141708Z]    Meta Train R²:  0.9279
+[INFO] [2026-01-04T02:22:54.143792Z] 
+================================================================================
+[INFO] [2026-01-04T02:22:54.145093Z] BƯỚC 3: RETRAIN BASE MODELS TRÊN TOÀN BỘ TRAINING DATA
+[INFO] [2026-01-04T02:22:54.147439Z] ================================================================================
+[INFO] [2026-01-04T02:22:54.150974Z]  Đang retrain RidgeRegressor (1/4)...
+[INFO] [2026-01-04T02:22:54.171962Z]    RidgeRegressor - Full Train MSE: 0.0068 | R²: 0.9507
+[INFO] [2026-01-04T02:22:54.174010Z]  Đang retrain XGBoostRegressor (2/4)...
+[INFO] [2026-01-04T02:34:11.101215Z]    XGBoostRegressor - Full Train MSE: 0.0035 | R²: 0.9749
+[INFO] [2026-01-04T02:34:11.102213Z]  Đang retrain LightGBMRegressor (3/4)...
+[INFO] [2026-01-04T02:55:44.245031Z]    LightGBMRegressor - Full Train MSE: 0.0051 | R²: 0.9633
+[INFO] [2026-01-04T02:55:44.246032Z]  Đang retrain RandomForestRegressor (4/4)...
+[INFO] [2026-01-04T02:56:27.630436Z]    RandomForestRegressor - Full Train MSE: 0.0241 | R²: 0.8252
+[INFO] [2026-01-04T02:56:27.631401Z] 
+================================================================================
+[INFO] [2026-01-04T02:56:27.631914Z]  STACKING REGRESSOR HUẤN LUYỆN HOÀN TẤT
+[INFO] [2026-01-04T02:56:27.632427Z] ================================================================================
+[INFO] [2026-01-04T02:56:27.633772Z]  Tổng thời gian: 9651.91s
+[INFO] [2026-01-04T02:56:27.633772Z]  Số base models: 4
+[INFO] [2026-01-04T02:56:27.634783Z]  Meta model: LinearRegressor
+[INFO] [2026-01-04T02:56:27.634783Z] ================================================================================
+[INFO] [2026-01-04T02:56:27.646868Z] 
+================================================================================
+[INFO] [2026-01-04T02:56:27.647866Z]  Đang đánh giá model cuối cùng trên toàn bộ tập training...
+[INFO] [2026-01-04T02:56:27.648871Z] ================================================================================
+[INFO] [2026-01-04T02:56:27.681979Z]  Đang dự đoán với StackingRegressor...
+[INFO] [2026-01-04T02:56:27.683692Z]  Đang lấy predictions từ 4 base models...
+[INFO] [2026-01-04T02:56:28.464196Z]   Meta features shape: (1646, 4)
+[INFO] [2026-01-04T02:56:28.464196Z]   Meta model đang kết hợp predictions...
+[INFO] [2026-01-04T02:56:28.465261Z]  Hoàn thành dự đoán cho 1646 mẫu
+[INFO] [2026-01-04T02:56:30.048683Z]    Đã lưu biểu đồ performance của model cuối cùng
+[INFO] [2026-01-04T02:56:30.050126Z]    R² Score: 0.9647
+[INFO] [2026-01-04T02:56:30.053336Z]    RMSE: 0.0698
+[INFO] [2026-01-04T02:56:30.054103Z]    MAE: 0.0500
+[INFO] [2026-01-04T02:56:30.055478Z] 
+================================================================================
+[INFO] [2026-01-04T02:56:30.056936Z]  HUẤN LUYỆN HOÀN TẤT THÀNH CÔNG
+[INFO] [2026-01-04T02:56:30.058017Z] ================================================================================
+[INFO] [2026-01-04T02:56:30.059145Z]  Kiểm tra thư mục 'figures/' để xem tất cả biểu đồ
+[INFO] [2026-01-04T02:56:30.060429Z]  Kiểm tra thư mục 'results/' để xem metrics và bảng tổng hợp
+[INFO] [2026-01-04T02:56:30.061441Z] ================================================================================
+[INFO] [2026-01-04T02:56:41.214046Z] Step `model_building_step` has finished in `13h15m1s`.
+[INFO] [2026-01-04T02:56:45.501934Z] Models can be viewed in the dashboard using ZenML Pro. Sign up for a free trial at https://www.zenml.io/pro/
+[INFO] [2026-01-04T02:56:45.504618Z] Step `model_evaluator_step` has started.
+[INFO] [2026-01-04T02:56:46.193701Z] ================================================================================
+[INFO] [2026-01-04T02:56:46.195188Z] BẮT ĐẦU BƯỚC ĐÁNH GIÁ MÔ HÌNH
+[INFO] [2026-01-04T02:56:46.195188Z] ================================================================================
+[INFO] [2026-01-04T02:56:46.197192Z]  Đã chuyển y_test từ DataFrame sang Series
+[INFO] [2026-01-04T02:56:46.197192Z]  Đang thực hiện dự đoán trên tập test...
+[INFO] [2026-01-04T02:56:46.204076Z]  Đang dự đoán với StackingRegressor...
+[INFO] [2026-01-04T02:56:46.205186Z]  Đang lấy predictions từ 4 base models...
+[INFO] [2026-01-04T02:56:46.414376Z]   Meta features shape: (412, 4)
+[INFO] [2026-01-04T02:56:46.415643Z]   Meta model đang kết hợp predictions...
+[INFO] [2026-01-04T02:56:46.415643Z]  Hoàn thành dự đoán cho 412 mẫu
+[INFO] [2026-01-04T02:56:46.415643Z]  Hoàn thành dự đoán cho 412 mẫu
+[INFO] [2026-01-04T02:56:46.417121Z]  Đang tính toán các chỉ số đánh giá...
+[INFO] [2026-01-04T02:56:46.419365Z] 
+================================================================================
+[INFO] [2026-01-04T02:56:46.420364Z]  KẾT QUẢ ĐÁNH GIÁ MÔ HÌNH
+[INFO] [2026-01-04T02:56:46.421383Z] ================================================================================
+[INFO] [2026-01-04T02:56:46.421919Z]    MSE (Mean Squared Error): 0.0081
+[INFO] [2026-01-04T02:56:46.421919Z]    R² Score:                 0.9421
+[INFO] [2026-01-04T02:56:46.422936Z]    Số features:              278
+[INFO] [2026-01-04T02:56:46.423741Z]    Số mẫu test:              412
+[INFO] [2026-01-04T02:56:46.423741Z] ================================================================================
+[INFO] [2026-01-04T02:56:46.424770Z] 
+ Đang lưu metadata vào output artifact...
+[INFO] [2026-01-04T02:56:46.424770Z]  Đã lưu metrics vào output artifact metadata
+[INFO] [2026-01-04T02:56:46.425770Z]  Đang lưu metadata vào model version...
+[INFO] [2026-01-04T02:56:46.582160Z]  Đã lưu metrics vào model version metadata
+[INFO] [2026-01-04T02:56:46.583221Z] 
+  Đang kiểm tra điều kiện promotion...
+[INFO] [2026-01-04T02:56:46.583221Z]    Ngưỡng R² tối thiểu: 0.85
+[INFO] [2026-01-04T02:56:46.584247Z]    R² hiện tại:         0.9421
+[INFO] [2026-01-04T02:56:46.599984Z] Model version 54 has been set to archived.
+[INFO] [2026-01-04T02:56:46.656720Z] 
+================================================================================
+[INFO] [2026-01-04T02:56:46.657723Z]  THÀNH CÔNG! Model version 59 đã được PROMOTE lên PRODUCTION
+[INFO] [2026-01-04T02:56:46.658718Z] ================================================================================
+[INFO] [2026-01-04T02:56:46.659723Z] 
+================================================================================
+[INFO] [2026-01-04T02:56:46.659723Z]  KẾT THÚC BƯỚC ĐÁNH GIÁ MÔ HÌNH
+[INFO] [2026-01-04T02:56:46.659723Z] ================================================================================
+[INFO] [2026-01-04T02:56:46.661269Z]  Kiểm tra ZenML Dashboard để xem chi tiết metrics
+[INFO] [2026-01-04T02:56:46.661269Z] ================================================================================
+[INFO] [2026-01-04T02:57:02.836299Z] Step `model_evaluator_step` has finished in `17.325s`.
+[INFO] [2026-01-04T02:57:03.843147Z] Pipeline run has finished in `13h15m41s`.
