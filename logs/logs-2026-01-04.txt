@@ -414,12 +414,12 @@ KẾT LUẬN:
 [INFO] [2026-01-04T02:02:25.917593Z]    [Fold 4/5] Train MSE: 0.0045 | Val MSE: 0.0103 | Train R²: 0.9670 | Val R²: 0.9288
 [INFO] [2026-01-04T02:19:22.786843Z]    [Fold 5/5] Train MSE: 0.0043 | Val MSE: 0.0139 | Train R²: 0.9684 | Val R²: 0.9046
 [INFO] [2026-01-04T02:19:22.787853Z] --------------------------------------------------------------------------------
-[INFO] [2026-01-04T02:19:22.788848Z]   LightGBMRegressor - Kết quả trung bình qua 5 folds:
+
+[INFO] [2026-01-04T02:19:22.791335Z] 
+ Đang train base model 4/4: RandomForestRegressor[INFO] [2026-01-04T02:19:22.788848Z]   LightGBMRegressor - Kết quả trung bình qua 5 folds:
 [INFO] [2026-01-04T02:19:22.788848Z]    Train MSE: 0.0044 | Val MSE: 0.0120
 [INFO] [2026-01-04T02:19:22.789844Z]    Train R²:  0.9679 | Val R²:  0.9133
 [INFO] [2026-01-04T02:19:22.789844Z]    Gap R² = 0.0546 (overfitting nhẹ)
-[INFO] [2026-01-04T02:19:22.791335Z] 
- Đang train base model 4/4: RandomForestRegressor
 [INFO] [2026-01-04T02:19:22.793186Z] --------------------------------------------------------------------------------
 [INFO] [2026-01-04T02:20:00.268779Z]    [Fold 1/5] Train MSE: 0.0229 | Val MSE: 0.0334 | Train R²: 0.8364 | Val R²: 0.7420
 [INFO] [2026-01-04T02:20:50.600427Z]    [Fold 2/5] Train MSE: 0.0171 | Val MSE: 0.0250 | Train R²: 0.8803 | Val R²: 0.7916
